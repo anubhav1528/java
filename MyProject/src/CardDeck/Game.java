@@ -5,7 +5,7 @@ import java.util.*;
 public class Game {
 	Scanner scanner = new Scanner(System.in);
 	Random random = new Random();
-	int randno1;
+	int randno;
 	int NoOfHands;
 	int NoOfCards;
 	int k = 49;
@@ -13,7 +13,6 @@ public class Game {
 	String[] CardArray = new String[52];
 	String[] CardtempArray = new String[52];
 	String swap;
-	
 
 	public Game() {
 		for (int i = 0; i < 4; i++) {
@@ -29,10 +28,10 @@ public class Game {
 			NoOfCards = scanner.nextInt();
 
 			for (int i = 0; i < NoOfHands * NoOfCards; i++) {
-				randno1 = random.nextInt(k - 0 + 1) + 1;
-				CardtempArray[i] = CardArray[randno1];
+				randno = random.nextInt(k - 0 + 1) + 1;
+				CardtempArray[i] = CardArray[randno];
 				swap = CardArray[k + 2];
-				CardArray[randno1] = swap;
+				CardArray[randno] = swap;
 				k--;
 			}
 			index = 0;

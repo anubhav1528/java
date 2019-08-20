@@ -10,14 +10,11 @@ public static void main(String[] args) {
 	set.add("hello");
 	list.addAll(set);
 	System.out.println(list.toString());
-	list.clear();
 	System.out.println(list.isEmpty());
 	for(String str:list) {
-		System.out.println(str);
+		System.out.println(str.toString());
 	}
 	Iterator<String> str = list.iterator();
-	while(str.hasNext()) {
-		list.remove(str.next());
-	}
+	while(str.hasNext()) {		System.out.println(str.next());}	
 }
 }
