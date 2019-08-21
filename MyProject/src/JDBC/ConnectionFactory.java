@@ -10,16 +10,14 @@ public class ConnectionFactory {
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampledb", "root", "root");
 	}
 
-	public static ConnectionFactory createConnection() throws SQLException
-	{
-		if (connectionFactory == null)
-		{
+	public static ConnectionFactory createConnection() throws SQLException {
+		if (connectionFactory == null) {
 			connectionFactory = new ConnectionFactory();
 		}
 		return connectionFactory;
 	}
-	public Connection getConnection() throws SQLException
-	{
+
+	public Connection getConnection() throws SQLException {
 		return connection;
 	}
 }

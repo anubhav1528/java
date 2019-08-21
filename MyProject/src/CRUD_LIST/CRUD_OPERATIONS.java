@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-
 public class CRUD_OPERATIONS {
 	private static int id;
 	private static String deleteid;
@@ -24,7 +23,6 @@ public class CRUD_OPERATIONS {
 	private static ArrayList<Users> UserDetails = new ArrayList<Users>();
 
 	public CRUD_OPERATIONS() {
-
 	}
 
 	public static void main(String[] args) {

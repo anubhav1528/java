@@ -1,4 +1,4 @@
-package comm.example8;
+package StackPushPop;
 
 public class MyStack {
 	public char[] arr= new char[10];
