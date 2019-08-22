@@ -10,6 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import Rs2xml.Rs2xmlFrame;
 import model.Employee;
 import service.EmployeeService;
 import service.EmployeeServiceImpl;
@@ -195,5 +196,14 @@ public class JFRAME {
 		});
 		btnUpdate.setBounds(123, 178, 89, 23);
 		frame.getContentPane().add(btnUpdate);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Rs2xmlFrame();
+			}
+		});
+		btnNewButton.setBounds(259, 287, 89, 23);
+		frame.getContentPane().add(btnNewButton);
 	}
 }
