@@ -1,0 +1,8 @@
+read
+write
+have
+some 
+data 
+in
+this 
+file
