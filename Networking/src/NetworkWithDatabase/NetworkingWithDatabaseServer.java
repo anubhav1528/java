@@ -55,33 +55,27 @@ public class NetworkingWithDatabaseServer {
 				BufferedReader br = new BufferedReader(new InputStreamReader(clientIn));
 				OutputStream clientOut = client.getOutputStream();
 				PrintWriter pw = new PrintWriter(clientOut, true);
-				// String msgFromClient = br.readLine();
-//                System.out.println("Number received from client = " + msgFromClient);
-//                
-//                // Send response to the client
-//                if (msgFromClient != null && !msgFromClient.equalsIgnoreCase("bye")) {
-//                   System.out.println("in this");
-//                	OutputStream clientOut = client.getOutputStream();
-//                    PrintWriter pw = new PrintWriter(clientOut, true);
-//                    int fact=Integer.parseInt(msgFromClient);
-//                    System.out.println(fact);
-//                     result=1;
-//                    for(int i=fact;i>1;i--) {
-//                    	result=result*(i);
-//                    }
-//                    System.out.println(result);
-//                    pw.println(result);
-//                    
-//                }
-
-				// Close sockets
-				// if (msgFromClient != null && msgFromClient.equalsIgnoreCase("bye")) {
+				/**
+				 * String msgFromClient = br.readLine(); System.out.println("Number received
+				 * from client = " + msgFromClient);
+				 * 
+				 * // Send response to the client if (msgFromClient != null &&
+				 * !msgFromClient.equalsIgnoreCase("bye")) { System.out.println("in this");
+				 * OutputStream clientOut = client.getOutputStream(); PrintWriter pw = new
+				 * PrintWriter(clientOut, true); int fact=Integer.parseInt(msgFromClient);
+				 * System.out.println(fact); result=1; for(int i=fact;i>1;i--) {
+				 * result=result*(i); } System.out.println(result); pw.println(result);
+				 * 
+				 * }
+				 * 
+				 * Close sockets if (msgFromClient != null &&
+				 * msgFromClient.equalsIgnoreCase("bye")) {
+				 */
 				String EmpId = br.readLine();
 				Employee empObj = service.getEmployeeById(Integer.parseInt(EmpId));
 				System.out.println(empObj);
 				pw.println(empObj);
 
-				
 				break;
 				// }
 

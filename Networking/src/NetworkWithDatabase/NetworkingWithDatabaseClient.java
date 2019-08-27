@@ -31,6 +31,7 @@ public class NetworkingWithDatabaseClient {
 	static int portnumber = 1235;
 	static String getEmpId;
 	Employee employeeobj = new Employee();
+	DefaultTableModel model = new DefaultTableModel();
 
 	/**
 	 * Launch the application.
@@ -69,6 +70,15 @@ public class NetworkingWithDatabaseClient {
 		textField.setBounds(10, 11, 98, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		model.addColumn("ID");
+		model.addColumn("First Name");
+		model.addColumn("Last Name");
+		model.addColumn("Email");
+		JTable table = new JTable(model);
+		table.setBounds(10, 101, 400, 76);
+		frame.getContentPane().add(table);
+		model = (DefaultTableModel) table.getModel();
+		model.addRow(new Object[] { "ID", "First Name", "Last Name", "Email" });
 
 		JButton btnNewButton = new JButton("SEARCH");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -108,22 +118,14 @@ public class NetworkingWithDatabaseClient {
 
 				// Create BufferedReader for a standard input
 				BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+
 				pw.println(getEmpId);
 				try {
 
 					try {
 						String rawString = br.readLine();
 						Employee emp = employeeobj.getObject(rawString);
-						DefaultTableModel model = new DefaultTableModel();
-						model.addColumn("ID");
-						model.addColumn("First Name");
-						model.addColumn("Last Name");
-						model.addColumn("Email");
-						JTable table = new JTable(model);
-						table.setBounds(10, 101, 400, 76);
-						frame.getContentPane().add(table);
-						model = (DefaultTableModel) table.getModel();
-						model.addRow(new Object[] { "ID", "First Name", "Last Name", "Email" });
+
 						model.addRow(
 								new Object[] { emp.getId(), emp.getFirstName(), emp.getLastName(), emp.getEmail() });
 
