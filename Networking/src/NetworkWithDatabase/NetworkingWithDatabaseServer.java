@@ -21,7 +21,7 @@ public class NetworkingWithDatabaseServer {
 		Socket client;
 
 		// Default port number we are going to use
-	    int  portnumber = 1235;
+		int portnumber = 1235;
 		int result;
 		EmployeeDao service = new EmployeeDaoImpl();
 
@@ -54,8 +54,8 @@ public class NetworkingWithDatabaseServer {
 				InputStream clientIn = client.getInputStream();
 				BufferedReader br = new BufferedReader(new InputStreamReader(clientIn));
 				OutputStream clientOut = client.getOutputStream();
-              PrintWriter pw = new PrintWriter(clientOut, true);
-				//                String msgFromClient = br.readLine();
+				PrintWriter pw = new PrintWriter(clientOut, true);
+				// String msgFromClient = br.readLine();
 //                System.out.println("Number received from client = " + msgFromClient);
 //                
 //                // Send response to the client
@@ -76,12 +76,12 @@ public class NetworkingWithDatabaseServer {
 
 				// Close sockets
 				// if (msgFromClient != null && msgFromClient.equalsIgnoreCase("bye")) {
-                String EmpId =br.readLine();
-                Employee empObj = service.getEmployeeById(Integer.parseInt(EmpId));
-                pw.println(empObj.toString());
-                
-				server.close();
-				server.close();
+				String EmpId = br.readLine();
+				Employee empObj = service.getEmployeeById(Integer.parseInt(EmpId));
+				System.out.println(empObj);
+				pw.println(empObj);
+
+				
 				break;
 				// }
 

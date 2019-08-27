@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import model.Employee;
 
@@ -29,8 +30,8 @@ public class NetworkingWithDatabaseClient {
 	static Socket client = null;
 	static int portnumber = 1235;
 	static String getEmpId;
-	String empObj;
-    Employee employeeobj;
+	Employee employeeobj = new Employee();
+
 	/**
 	 * Launch the application.
 	 */
@@ -72,6 +73,7 @@ public class NetworkingWithDatabaseClient {
 		JButton btnNewButton = new JButton("SEARCH");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				getEmpId = textField.getText();
 				try {
 					client = new Socket(InetAddress.getLocalHost(), portnumber);
@@ -104,14 +106,32 @@ public class NetworkingWithDatabaseClient {
 				}
 				BufferedReader br = new BufferedReader(new InputStreamReader(clientIn));
 
-	 			// Create BufferedReader for a standard input
+				// Create BufferedReader for a standard input
 				BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 				pw.println(getEmpId);
 				try {
-					empObj = br.readLine();
-					Object obj =empObj;
-					employeeobj = (Employee)obj;
-					System.out.println(employeeobj.getEmail());
+
+					try {
+						String rawString = br.readLine();
+						Employee emp = employeeobj.getObject(rawString);
+						DefaultTableModel model = new DefaultTableModel();
+						model.addColumn("ID");
+						model.addColumn("First Name");
+						model.addColumn("Last Name");
+						model.addColumn("Email");
+						JTable table = new JTable(model);
+						table.setBounds(10, 101, 400, 76);
+						frame.getContentPane().add(table);
+						model = (DefaultTableModel) table.getModel();
+						model.addRow(new Object[] { "ID", "First Name", "Last Name", "Email" });
+						model.addRow(
+								new Object[] { emp.getId(), emp.getFirstName(), emp.getLastName(), emp.getEmail() });
+
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -123,8 +143,5 @@ public class NetworkingWithDatabaseClient {
 		btnNewButton.setBounds(10, 53, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 
-		table = new JTable();
-		table.setBounds(10, 101, 120, 76);
-		frame.getContentPane().add(table);
 	}
 }

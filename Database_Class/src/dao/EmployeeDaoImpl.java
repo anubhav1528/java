@@ -64,6 +64,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(empobj.toString());
 		return empobj;
 	}
 
