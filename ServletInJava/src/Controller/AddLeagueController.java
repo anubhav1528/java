@@ -11,7 +11,6 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,13 +18,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import Model.League;
 import Factory.MyConnFactory;
 
 @WebServlet("/add_league.do")
 public class AddLeagueController extends HttpServlet {
-	private static int serialVersionUID = 100;
+	private int serialVersionUID;
 
 	private String season, title, year;
 	private int iYear;
@@ -84,6 +82,14 @@ public class AddLeagueController extends HttpServlet {
 		if (title.toString().length() < 5) {
 			errMsgs.add("title is too short.");
 		}
+		if(!errMsgs.isEmpty())
+		{
+			
+			request.setAttribute("ERROR", errMsgs);
+			RequestDispatcher view=request.getRequestDispatcher("add_league.php");
+			view.forward(request, response);
+			
+		}
 
 		if (errMsgs.isEmpty()) {
 			request.setAttribute("SUCCESS", new Model.League(title, iYear, season));
@@ -101,11 +107,7 @@ public class AddLeagueController extends HttpServlet {
 			System.out.println("File write complete! Saved to: " + new File("out.txt").getAbsolutePath());
 			RequestDispatcher view = request.getRequestDispatcher("success.view");
 			view.forward(request, response);
-		} else {
-			request.setAttribute("ERROR", errMsgs);
-			RequestDispatcher view = request.getRequestDispatcher("error.view");
-			view.forward(request, response);
-		}
+		} 
 
 	}
 

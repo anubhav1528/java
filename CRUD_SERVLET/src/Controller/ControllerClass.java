@@ -70,6 +70,10 @@ public class ControllerClass extends HttpServlet {
 
 
 		Name = request.getParameter("title");
+		Password=request.getParameter("password");
+		System.out.println(Password);
+		System.out.println(Name);
+	String	Email=request.getParameter("email");
 		if (Name.toString().length() < 5) {
 			errMsgs.add("Name is too short.");
 		}
@@ -77,7 +81,7 @@ public class ControllerClass extends HttpServlet {
 		{
 			
 			request.setAttribute("ERROR", errMsgs);
-			RequestDispatcher view=request.getRequestDispatcher("add_league.php");
+			RequestDispatcher view=request.getRequestDispatcher("add_employee.view");
 			view.forward(request, response);
 			
 		}
@@ -86,10 +90,11 @@ public class ControllerClass extends HttpServlet {
 			
 			Connection connection = MyConnFactory.getMySqlConnectionforSampledb();
 			PreparedStatement pst = connection
-					.prepareStatement("insert into EmployeeList(Name,Password,Country,uid) values(?,?,?,?)");
+					.prepareStatement("insert into EmployeeList(Name,Password,Country,uid,email) values(?,?,?,?,?)");
 			pst.setString(1, Name);
 			pst.setString(2, Password);
 			pst.setString(3, Country);
+			pst.setString(5, Email);
 			pst.setInt(4, serialVersionUID++);
 			pst.executeUpdate();
 			bufferwriter.write(serialVersionUID);

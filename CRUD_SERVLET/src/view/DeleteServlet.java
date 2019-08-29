@@ -73,7 +73,7 @@ public class DeleteServlet extends HttpServlet {
 		PreparedStatement pst = connection.prepareStatement("delete from EmployeeList where id="+id);
 		pst.executeUpdate();
 		System.out.println("dletete");
-		javax.servlet.RequestDispatcher  view=request.getRequestDispatcher("show_employee.view");
+		javax.servlet.RequestDispatcher  view=request.getRequestDispatcher("login_employee.view");
 		view.forward(request, response);
 
 	}

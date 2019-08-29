@@ -44,23 +44,27 @@ public class AddEmployeeServlet extends HttpServlet {
 		if (err != null) {
 			for (String s : err) {
 				out.println("<font color='red'>" + s + "</font><br/>");
-			}
-		} else {
+			}}
+		 else {
 			String success = (String) request.getAttribute("SUCCESS");
-			out.println(success);
+			if(success!=null){
+			out.println(success);}
 		}
-
-		out.println("<form action='add_employee.do' method='post'>");
-		out.println("Name<input type='text' name='title'><br/>");
-		out.println("Password<input type='password' name='passoword'><br/>");
-		out.println("Email<input type='email' name='email'><br/>");
+   
+        out.println("<fieldset><legend><h4>ADD EMPLOYEE</h2></legend>");
+		out.println("<form action='add_employee.do' method='post'><h4><b>Name-</b><br><input type='text' name='title'><br/>");
+		out.println("<h4><b>Password-</b><br><input type='password' name='password'><br/>");
+		out.println("<h4><b>Email-</b><br><input type='email' name='email'><br/>");
+		out.println("<br>");
 		String sList = getServletConfig().getInitParameter("country-list");
 		String arrSList[] = sList.split(",");
 		out.println("<select name='Country'><option value='Country'>Select Country</option>");
 		for (String str : arrSList) {
 			out.println("<option value='" + str + "'" + ">" + str + "</option>");
 		}
-		out.println("</select><br/><input type='submit' value='add league'></form></body></html>");
-	out.println("<a href='show_employee.view'>View List Of Employee</a>");
+		out.println("</select><br/><hr><input type='submit' value='Add Employee'></form>");
+		out.println("<h4><a href='login_employee.view'>View List Of Employee</a>");
+		out.println("</fieldset>");
+		out.println("</body></html>");
 	}
 }

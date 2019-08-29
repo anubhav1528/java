@@ -21,6 +21,15 @@ public class EmployeeList {
 	}
 
 	private String Name;
+	private String Email;
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
 	private String Password;
 	private String Country;
 
@@ -28,12 +37,13 @@ public class EmployeeList {
 		super();
 	}
 
-	public EmployeeList(int id,String Name, String Password, String Country) {
+	public EmployeeList(int id,String Name, String Password, String Country,String Email) {
 		super();
 		this.id=id;
 		this.Name = Name;
 		this.Password = Password;
 		this.Country = Country;
+		this.Email=Email;
 	}
 
 	public String getName() {

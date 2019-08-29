@@ -1,3 +1,4 @@
+
 package Controller;
 
 import java.io.BufferedWriter;
@@ -64,43 +65,40 @@ public class ControllerClassForUpdate extends HttpServlet {
 		System.out.println(serialVersionUID);
 		errMsgs = new LinkedList<String>();
 		Country = request.getParameter("Country");
+		String email = request.getParameter("email");
 		if (Country.equals("Select Country")) {
 			errMsgs.add("please select a valid Country.");
 		}
 
-
 		Name = request.getParameter("title");
-	 Password=request.getParameter("password");
-    int id = Integer.parseInt(request.getParameter("id"));
+		Password = request.getParameter("password");
+		int id = Integer.parseInt(request.getParameter("id"));
 		if (Name.toString().length() < 5) {
 			errMsgs.add("Name is too short.");
 		}
-		if(!errMsgs.isEmpty())
-		{
-			
+		if (!errMsgs.isEmpty()) {
+
 			request.setAttribute("ERROR", errMsgs);
-			RequestDispatcher view=request.getRequestDispatcher("edit_emloyee.view");
+			RequestDispatcher view = request.getRequestDispatcher("edit_emloyee.view");
 			view.forward(request, response);
-			
+
 		}
 
 		if (errMsgs.isEmpty()) {
-			
+
 			Connection connection = MyConnFactory.getMySqlConnectionforSampledb();
 			PreparedStatement pst = connection
-					.prepareStatement("update  EmployeeList set name=?,password=?,country=? where id="+id);
+					.prepareStatement("update  EmployeeList set name=?,password=?,country=?,email=? where id=" + id);
 			pst.setString(1, Name);
 			pst.setString(2, Password);
 			pst.setString(3, Country);
+			pst.setString(4, email);
 			pst.executeUpdate();
-			bufferwriter.write(serialVersionUID);
 			bufferwriter.flush();
 			bufferwriter.close();
-			System.out.println("File write complete! Saved to: " + new File("out.txt").getAbsolutePath());
-			request.setAttribute("SUCCESS", "Record Saved Successfully");
-			RequestDispatcher view=request.getRequestDispatcher("show_employee.view");
+			RequestDispatcher view = request.getRequestDispatcher("show_employee.view");
 			view.forward(request, response);
-		} 
+		}
 
 	}
 

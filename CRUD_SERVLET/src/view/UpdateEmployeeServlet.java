@@ -47,29 +47,33 @@ public class UpdateEmployeeServlet extends HttpServlet {
 			}
 		} else {
 			String success = (String) request.getAttribute("SUCCESS");
-			out.println(success);
+			if(success!=null) {
+			out.println(success);}
 		}
-       String name=request.getParameter("name");
-        // System.out.println(name);
-         String password = request.getParameter("password");
-         System.out.println(password);
-         int id=Integer.parseInt(request.getParameter("id"));
-         String country = request.getParameter("country");
-         System.out.println(country);
-		out.println("<form action='edit_employee.do?id="+id+"' method='post'>");
-		out.println("Name<input type='text' name='title'value="+name+" ><br/>");
-		out.println("Password<input type='password' name='passoword' value="+password+"><br/>");
-		out.println("Email<input type='email' name='email'><br/>");
+		String name = request.getParameter("name");
+		// System.out.println(name);
+		String password = request.getParameter("password");
+		System.out.println(password);
+		int id = Integer.parseInt(request.getParameter("id"));
+		String email = request.getParameter("email");
+
+		out.println("<fieldset><legend><h4>UPDATE EMPLOYEE</h2></legend>");
+		out.println("<form action='edit_employee.do?id=" + id + "' method='post'>");
+		out.println("Name<br><input type='text' name='title'value=" + name + " ><br/>");
+		out.println("Password<br><input type='password' name='passoword' value=" + password + "><br/>");
+		out.println("Email<br><input type='email' name='email'value=" + email + "><br/>");
 		String sList = getServletConfig().getInitParameter("country-list");
 		String arrSList[] = sList.split(",");
-		out.println("<select name='Country'><option value='Country'>Select Country</option>");
+		out.println("<br>");
+		out.println("<select name='Country'><option value='unknown'>Select Country</option>");
 		for (String str : arrSList) {
-			if(str.equals(country)) {
-				continue;
-			}
 			out.println("<option value='" + str + "'" + ">" + str + "</option>");
 		}
-		out.println("</select><br/><input type='submit' value='add league'></form></body></html>");
-	out.println("<a href='show_employee.view'>View List Of Employee</a>");
+		out.println("</select>");
+		out.println("<hr>");
+		out.println("<input type='submit' value='update employee'></form>");
+		out.println("<a href='login_employee.view'>View List Of Employee</a>");
+		out.println("<fieldset");
+		out.println("</body></html>");
 	}
 }
