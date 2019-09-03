@@ -11,8 +11,8 @@ public class TestCalculator extends TestCase {
 	int x;
 	int y;
 
-	public TestCalculator(String string) {
-		super(string);
+	public TestCalculator() {
+		super();
 	}
 
 	@Test
@@ -26,18 +26,4 @@ public class TestCalculator extends TestCase {
 
 	}
 
-	public void testComparenegative() {
-		x = 6;
-		y = 5;
-		Calculator calculatorObj = new Calculator(x, y);
-		int result = calculatorObj.compare();
-		result = -result;
-		System.out.println(result);
-		assertEquals(-1, result);
-
-	}
-
-	
-
-	
 }

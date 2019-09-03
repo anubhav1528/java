@@ -19,7 +19,8 @@ public class Employee implements Serializable{
 	public String toString() {
 		try {
 			//System.out.println(emp);
-			ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
+			ByteArrayOutputStream baos = new 
+					ByteArrayOutputStream(1024);
 			ObjectOutputStream oos = new ObjectOutputStream(baos);
 			oos.writeObject(this);
 			byte[] rawData = baos.toByteArray();
