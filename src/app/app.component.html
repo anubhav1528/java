@@ -1,0 +1,12 @@
+
+ <body>
+   <div>
+<div style="width: 300px;">
+    <marquee direction = "up" loop="" *ngFor="let feed of feeds"  >
+      <h3>{{feed.title}}</h3>
+      <h4>{{feed.author}}-{{feed.pubDate | date:'dd-MM-yyyy'}}</h4>
+      <P><em>{{feed.description | stripHtmlTags}}</em></P>
+    </marquee>
+</div> 
+</div> 
+</body> 
