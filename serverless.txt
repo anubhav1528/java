@@ -1,0 +1,9 @@
+Goto serverless.com
+Goto Docs
+In product choose cli
+choose aws-config credentials
+npm i @ng-toolkit/serverless
+exprot aws_access_key_id = 
+export aws_secret_access_key = 
+ng add @ng-toolkit/serverless --provider aws
+  

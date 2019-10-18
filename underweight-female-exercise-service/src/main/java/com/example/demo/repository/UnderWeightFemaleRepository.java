@@ -11,4 +11,6 @@ import com.example.demo.entity.UnderWeightFemale;
 public interface UnderWeightFemaleRepository extends CrudRepository<UnderWeightFemale, Integer> {
 
 	List<UnderWeightFemale> findAllByDay(int day);
+
+	List<UnderWeightFemale> findAllByDayAndEmail(int i, String email);
 }

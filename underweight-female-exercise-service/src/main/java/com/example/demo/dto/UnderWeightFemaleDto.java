@@ -2,23 +2,19 @@ package com.example.demo.dto;
 
 public class UnderWeightFemaleDto {
 	private String exerciseName;
-	private String exerciseDescription;
-	private int amount;
-	private String exerciseUrl;
+	private int actual_amount;
+	private int expected_amount;
 
 	public UnderWeightFemaleDto() {
 		super();
 	}
 
-	public UnderWeightFemaleDto( String exerciseName, String exerciseDescription, int amount, String exerciseUrl) {
+	public UnderWeightFemaleDto(String exerciseName, int actual_amount, int expected_amount) {
 		super();
-
 		this.exerciseName = exerciseName;
-		this.exerciseDescription = exerciseDescription;
-		this.amount = amount;
-		this.exerciseUrl = exerciseUrl;
+		this.actual_amount = actual_amount;
+		this.expected_amount = expected_amount;
 	}
-
 
 	public String getExerciseName() {
 		return exerciseName;
@@ -28,28 +24,21 @@ public class UnderWeightFemaleDto {
 		this.exerciseName = exerciseName;
 	}
 
-	public String getExerciseDescription() {
-		return exerciseDescription;
+	public int getActual_amount() {
+		return actual_amount;
 	}
 
-	public void setExerciseDescription(String exerciseDescription) {
-		this.exerciseDescription = exerciseDescription;
+	public void setActual_amount(int actual_amount) {
+		this.actual_amount = actual_amount;
 	}
 
-	public int getAmount() {
-		return amount;
+	public int getExpected_amount() {
+		return expected_amount;
 	}
 
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setExpected_amount(int expected_amount) {
+		this.expected_amount = expected_amount;
 	}
 
-	public String getExerciseUrl() {
-		return exerciseUrl;
-	}
-
-	public void setExerciseUrl(String exerciseUrl) {
-		this.exerciseUrl = exerciseUrl;
-	}
-
+	
 }

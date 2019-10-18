@@ -1,0 +1,59 @@
+Core container
+  
+Context
+  |
+ SPEL
+  |
+CORE LIB
+  |                                ^
+ BINS      Diagram down to upwards |
+
+Steps-
+1.- Configure your Spring Beans
+2- Create a Spring Container
+3.- Retrieve Beans from Spring Container
+Spring core from maven repo
+add spring context from mavcen repo with same version as spring core
+to create a beans factory add spinrg beans from maven repo with same version
+
+check for the version in properties in build path
+set it as default
+now goto maven and update the project
+step 1-
+create a maven project
+add dependenices
+now create a new inteface as coach
+now create a class for that inteface 
+now create a class baseball coach
+now create a class for cricket coach
+step 2-
+right click new other goto spring spring bin config file put it under the src main java by spring spec name the file as 
+application_context.xml select beans context c add these three namespace 
+
+container started-bean instantiated-dependenices injected-internal spring processing-your custom inti method- bea is ready for use container is shutdown-new custom destory method-stop
+
+
+
+Web   ----->front controller
+               |       Model
+            controller
+               |       Model
+Browser <--- view controler
+
+
+Spring MVC Cofig.
+Part 1-
+1.- add the config file web-inf/web.xml
+2.- config spring mvc dispatcher servlet
+3.- set up URL mapppings to spring MVC Dispatcher Servlet
+
+Part 2-
+4.- add support for spring component scanning
+5.- add support for conversion, formatting and validation
+6.- configure spring mvc view resolver
+
+add servlet dependency from maven javax-servlet-api
+add javaserver pages standard tag library -1.2
+add spring core,spirng context,spirng bean,spring web,spring web mvc
+right click- properties- deployment assesmbly
+

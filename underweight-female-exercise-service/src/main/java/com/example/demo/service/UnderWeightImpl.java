@@ -20,14 +20,14 @@ public class UnderWeightImpl implements UnderWeightService {
 	private UnderWeightFemaleRepository overWeightFemaleRepository;
 
 	@Override
-	public List<ResponseModel> getWorkout() {
+	public List<ResponseModel> getWorkout(String email) {
 		List<ResponseModel> list = new ArrayList<ResponseModel>();
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		for(int i=1 ; i<=30;i++) {
 			ResponseModel rs = new ResponseModel();
 			rs.setDay(i);
-			List<UnderWeightFemale> list1 = overWeightFemaleRepository.findAllByDay(i);
+			List<UnderWeightFemale> list1 = overWeightFemaleRepository.findAllByDayAndEmail(i,email);
 			List<UnderWeightFemaleDto> list2 = new ArrayList<UnderWeightFemaleDto>();
 			for(UnderWeightFemale female : list1) {
 				list2.add(mapper.map(female, UnderWeightFemaleDto.class));

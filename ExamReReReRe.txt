@@ -1,0 +1,2 @@
+Goto Manage Jenkins after opening jenknins
+got global tool config

@@ -1,0 +1,49 @@
+Str name = rq.getparam(fname)
+cookie c = new cokkie("yourname",name);
+res.addcookie(c);
+
+
+cokkie [] allcookiew = req.getcookies();
+for(int i=0; i<allcookie.len; i++){
+if(allcookies[i].getname().equals("yourname")){
+name=allcookies[i].getvalue();
+}
+}
+
+
+java app->hibernate->jdbc->database
+
+Map class to database table
+Map fields to database column
+
+Session factory-
+reads the hibernate config file creates session objects heavy - weight object only creates once in your app
+session -
+ wraps a jdbc conn main obj used to save/retrieve obj short - lived object retrieved from session factory
+ MAVEN-
+step-5 get it from the remote and push it into the local
+MAVEN FOR WEB APP-
+PROJECT Name-                                                                               Dir                                                   Desc
+|
+pom.xml                                                                                  srcmainjava                                     your java source code
+src-                                                                                    
+    |
+      main-
+          |
+           -java
+           -resources
+           -webapp
+     test-
+          |
+           -java
+           -resources
+target
+
+
+Group ID- name of company, group, or org convention is to use reverse domain name .com .luv2code
+Artifact ID - name for this project mycoolapp
+Version - a specific release ver like 1.0,2.0 if porject is under active devlopment then - 1.0 SNAPSHOT
+
+<groupid> com.luv2code </groupid>
+<artifactid>mycoolapp</artifactid>
+<version>1.0 FINAL</version>

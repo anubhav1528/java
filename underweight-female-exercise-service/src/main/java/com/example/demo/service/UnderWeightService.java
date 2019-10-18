@@ -7,7 +7,7 @@ import com.example.demo.model.ResponseModel;
 
 public interface UnderWeightService {
 
-	List<ResponseModel> getWorkout();
+	List<ResponseModel> getWorkout(String email);
 
 	UnderWeightFemale addworkout(UnderWeightFemale female);
 }

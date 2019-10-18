@@ -1,0 +1,191 @@
+maven project webapp
+servlet - api
+jstl
+web mvc
+hibernate core
+hibernate ORM hibernate entitymanager
+spring transaction
+hibernate validator engine choose 6.0x
+lombok
+javax annotation api
+C3P0
+spring ORM
+
+HTTP METHOD           CURD OPS
+POST                Create a new entity
+GET                 Read a list of entities or single entity
+PUT                 Update an existing entity
+DELETE              Delete an existing entity
+
+
+New Maven Project- SpringRest
+Create new folder named JAVA
+1.- Spring WEB-MVC\
+2.- JACKSON Databind 2.9.9.3
+3.- javax.servlet-api
+AbstractAnnotationConfigDispatcherServletInitializer
+Three abstarct mehtods of this class
+getRootConfigClasses
+getServletConfigClasses
+implement WebMvc Configurer
+getServletMappings
+
+Code Review-
+1. pom.xml file
+2. All Java Config
+3. Configuration file for database connection
+4. Hibernate Entity class customer
+5. DA0: Customer DAO ...
+6. Service CustomerService ...
+
+Project facets
+goto java change the version to 1.8
+
+Spring Data JPA
+For spring-boot project
+Spring booot Actuator
+thyemleaf
+spirng rest data-spring boot data rest starter
+lombok
+
+URL for h2 database
+-jdbc:h2:mem:testdb
+driverclassname-org.h2.Driver
+username=sa
+password= 
+platform-org.hibernate.dialect.H2Dialect
+
+Implmenting a class with applicationListener
+create a method called onApplication
+HETIOES
+insert into league values(2,'w','s',1);
+
+Tables-Recipe,notes,ingredient
+Column of Recipe-
+ID
+COOK_TIME
+DESC
+DIFFICULTY
+PREP_TIME
+SERVINGS
+SOURCE
+URL
+NOTES_ID
+Column of Ingredient-
+ID
+AMOUNT
+DESC
+RECIPE_ID
+UOM_ID
+Column of Notes-
+ID
+NOTES
+RECEIPE_ID
+
+web browser->spring sercurity filters->protected web resource
+Different Loging Methods-
+Http Basic Authentivation
+Default Login form
+-Spring Security provides a defalut login form
+Custom login form-
+your own look 
+DEVLOPMENT PROCESS-
+1.- Create-Spring Security initializer
+2.- Create Spring Security config 
+3.- Add User,passwords and roles
+spring web
+spring serurity
+use version 5.1.6
+sprint serurity core'
+spring sercurity config
+spring sercurity web
+jsp,jstl servlet
+Apacher maven war plugin
+Create project
+create config class 
+
+When a logout is processed, by default Spring Security will...
+Invalidate user's HTTP session and remove session cookies,etc.
+Send user back to the 
+/smaple/** for all mapping under sample
+Table Structure For Spring Security
+Create Table users{
+username varchar_ignorecase(50) not null,primary key,
+password varhcar_ignorecase(200) not null,
+enabled boolean not null
+};
+create table authorities{
+username varhcar_igonrecase(50) nuol null
+}
+MicroServices-
+cloud bootstrap
+config server
+spring boot devtools
+config client
+For Eureka Server-
+Eureka Server
+Cloud bootstrap
+config server
+boot devtools
+eureka discovery client 
+For Client-
+config client
+spring web 
+@LoadBalanced Add this annotation
+For api-
+spring data jps
+mysql
+
+The Problem: Cascading Failure
+.Having a large number of services as dependencies can lead to a 'cascading failures'
+.Without mitigating this,microservices are a recipe for certain disaster!
+Hystrix-
+Hystrix Default-20 failures in 5 seconds
+fallbacks can be chained
+Hystrix closes itself after 5 seconds interval
+For Hystrix-
+Add the dependency 
+Hystrix and annotation enablehystr2ix
+@HystrixProperty(name="circuitBreaker.errorThresholdPercentage",value="20")
+                (name="circuitBreaker.sleepWindowMilliseconds",value="1000")    
+execution.isolation.thread.timeoutinMilliseconds-
+How long should we wait for success?
+circuitBreaker.requestVolumeThershold-
+#
+circuitBreaker.error.Thershold-
+#
+circuitBreaker.sleepWindowInMilliseconds
+-
+Dependencis for Hystrix-
+spring-cloud-starter-hystrix-dashboard
+spring-cloud-starter-hystrix-actuator
+For zuul-
+Add zuul
+Feign
+For feign-
+Add openfeign
+yaml-yet another markup language
+Accessing Hystrix Dashboard-
+http://<host>:<port>/hystrix
+For Stream-
+http://<host><port>/acutator/hsytrix.stream
+Use Finchley Relase-
+when using hystrix
+or change the jdk to 1.9
+add maven plugin if not automatically detected
+For hytrix project main class-
+@springbootapplication
+@enablediscoveryclient
+@enablefeignclient
+@enablehystrix
+@enablehysrixdashboard
+Add the dependencies-
+spring starte cloud config
+cloud starter
+ribbon
+hystix
+hystrix dashboard
+acutator
+test
+devtools
+apache.ant

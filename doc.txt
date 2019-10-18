@@ -1,0 +1,84 @@
+goto cmd propmt and run command 
+docker --version
+to check the images
+docker images
+to remove-
+docker rmi openjdk:latest
+to check images
+docker images
+url-hub.docker.com
+search for java
+now search openjdk
+open openjdk
+then select the os with version
+better to chose linux page
+goto cmd prmpt-
+run command-
+docker pull openjdk
+serach mysql
+run command-docker pull mysql
+
+docker ps
+to see the logs-
+
+docker container ls
+ docker rm ibm-mysql
+
+to check if the docker engine is working properly
+docker run hello-world if a hello world exsits
+to run any image-
+dokcer run
+create a spring.io project-
+choose devtools,starter web
+Give a shorter name
+run as maven clean
+the project
+go in application.properties-
+change the port if u wish
+then run as-
+maven install
+right click goto new create a file -
+Dockerfile with no extension in root fo the project
+
+goto hub.docker.com
+search for openjdk
+copy the commands to your app proerties
+
+
+
+docker exec -it ibm-mysql bash
+
+sudo docker run --name ibm-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=fitness_tracker -e MYSQL_USER=root MYSQL_PASSWORD=ROOT -d mysql:latest
+
+
+right click goto new create a file -
+Dockerfile with no extension in root fo the project
+
+
+FROM opejndk:8
+ADD: target/spring-boot-demo.jar spring-boot-demo.jar (First param-your jar file second param-by which name you want to create(put it as same))
+EXPOSE 8086
+ENTRYPOINT ["java","-jar","spring-boot-demo.jar"]
+
+goto project dir
+where ur project is present and now run the command
+docker build . -t spring-boot-docker
+to run the docker image-
+docker run -p 8086:8006 --name spring-boot-container -d spring-boot-docker:latest
+if created run command-
+docker ps
+to check for logs-
+sudo docker logs spring-boot-container
+AWS------------------------------------------------------------------------------------------------------------
+in amazon console create user->ec2-user
+give access to both i.e progmatic and aws managment console
+assign to the group developers if not created create a group named same
+in console password put a cusotmr password like -root
+selet check box as no
+click on create user
+download the csv file
+goto users-
+
+
+
+

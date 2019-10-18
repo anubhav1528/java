@@ -7,29 +7,29 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "underweight_female_workout")
+@Table(name = "user_track")
 public class UnderWeightFemale {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String email;
 	private int day;
 	private String exerciseName;
-	private String exerciseDescription;
-	private int amount;
-	private String exerciseUrl;
+	private int actual_amount;
+	private int expected_amount;
 
 	public UnderWeightFemale() {
 		super();
 	}
 
-	public UnderWeightFemale(int day, String exerciseName, String exerciseDescription, int amount, String exerciseUrl) {
+	public UnderWeightFemale(String email, int day, String exerciseName, int actual_amount, int expected_amount) {
 		super();
+		this.email = email;
 		this.day = day;
 		this.exerciseName = exerciseName;
-		this.exerciseDescription = exerciseDescription;
-		this.amount = amount;
-		this.exerciseUrl = exerciseUrl;
+		this.actual_amount = actual_amount;
+		this.expected_amount = expected_amount;
 	}
 
 	public int getId() {
@@ -38,6 +38,14 @@ public class UnderWeightFemale {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getDay() {
@@ -56,28 +64,27 @@ public class UnderWeightFemale {
 		this.exerciseName = exerciseName;
 	}
 
-	public String getExerciseDescription() {
-		return exerciseDescription;
+	public int getActual_amount() {
+		return actual_amount;
 	}
 
-	public void setExerciseDescription(String exerciseDescription) {
-		this.exerciseDescription = exerciseDescription;
+	public void setActual_amount(int actual_amount) {
+		this.actual_amount = actual_amount;
 	}
 
-	public int getAmount() {
-		return amount;
+	public int getExpected_amount() {
+		return expected_amount;
 	}
 
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setExpected_amount(int expected_amount) {
+		this.expected_amount = expected_amount;
 	}
 
-	public String getExerciseUrl() {
-		return exerciseUrl;
+	@Override
+	public String toString() {
+		return "UnderWeightFemale [id=" + id + ", email=" + email + ", day=" + day + ", exerciseName=" + exerciseName
+				+ ", actual_amount=" + actual_amount + ", expected_amount=" + expected_amount + "]";
 	}
 
-	public void setExerciseUrl(String exerciseUrl) {
-		this.exerciseUrl = exerciseUrl;
-	}
-
+	
 }
